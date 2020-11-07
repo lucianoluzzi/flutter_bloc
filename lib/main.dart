@@ -1,25 +1,29 @@
+import 'package:bytebank/components/theme.dart';
 import 'package:bytebank/screens/dashboard.dart';
+import 'package:bytebank/screens/name.dart';
 import 'package:flutter/material.dart';
-import 'package:uuid/uuid.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(BytebankApp());
 }
 
-class BytebankApp extends StatelessWidget {
+class LogObserver extends BlocObserver {
+  @override
+  void onChange(Cubit cubit, Change change) {
+    print("${cubit.runtimeType} > $change");
+    super.onChange(cubit, change);
+  }
+}
 
+class BytebankApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
+    Bloc.observer = LogObserver();
     return MaterialApp(
-      theme: ThemeData(
-        primaryColor: Colors.green[900],
-        accentColor: Colors.blueAccent[700],
-        buttonTheme: ButtonThemeData(
-          buttonColor: Colors.blueAccent[700],
-          textTheme: ButtonTextTheme.primary,
-        ),
-      ),
-      home: Dashboard(),
+      theme: bytebankTheme,
+      home: NameContainer(),
     );
   }
 }
