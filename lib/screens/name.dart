@@ -10,10 +10,7 @@ class NameCubit extends Cubit<String> {
 class NameContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => NameCubit("Luciano"),
-      child: NameView(),
-    );
+    return NameView();
   }
 }
 
@@ -22,12 +19,13 @@ class NameView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextTheme textTheme = Theme
-        .of(context)
-        .textTheme;
+    final TextTheme textTheme = Theme.of(context).textTheme;
+    _nameController.text = context.watch<NameCubit>().state;
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Mudar o nome"),),
+      appBar: AppBar(
+        title: const Text("Mudar o nome"),
+      ),
       body: Column(
         children: [
           TextField(
@@ -40,13 +38,18 @@ class NameView extends StatelessWidget {
             ),
           ),
           Padding(
-              padding: const EdgeInsets.only(top: 16.0),
-              child: SizedBox(width: double.maxFinite,
-                child: RaisedButton(child: Text("Change"), onPressed: () {
+            padding: const EdgeInsets.only(top: 16.0),
+            child: SizedBox(
+              width: double.maxFinite,
+              child: RaisedButton(
+                child: Text("Change"),
+                onPressed: () {
                   final name = _nameController.text;
                   context.read<NameCubit>().change(name);
                   Navigator.pop(context);
-                },),)
+                },
+              ),
+            ),
           ),
         ],
       ),
