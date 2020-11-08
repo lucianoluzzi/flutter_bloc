@@ -1,3 +1,4 @@
+import 'package:bytebank/models/name.dart';
 import 'package:bytebank/screens/contacts_list.dart';
 import 'package:bytebank/screens/name.dart';
 import 'package:bytebank/screens/transactions_list.dart';

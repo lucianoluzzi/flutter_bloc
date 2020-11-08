@@ -1,11 +1,6 @@
+import 'package:bytebank/models/name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-class NameCubit extends Cubit<String> {
-  NameCubit(String name) : super(name);
-
-  void change(String name) => emit(name);
-}
 
 class NameContainer extends StatelessWidget {
   @override
@@ -19,7 +14,6 @@ class NameView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextTheme textTheme = Theme.of(context).textTheme;
     _nameController.text = context.watch<NameCubit>().state;
 
     return Scaffold(

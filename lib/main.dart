@@ -1,6 +1,5 @@
 import 'package:bytebank/components/theme.dart';
 import 'package:bytebank/screens/dashboard.dart';
-import 'package:bytebank/screens/name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,7 +18,6 @@ class LogObserver extends BlocObserver {
 class BytebankApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     Bloc.observer = LogObserver();
     return MaterialApp(
       theme: bytebankTheme,
