@@ -1,8 +1,9 @@
+import 'package:bytebank/components/container.dart';
 import 'package:bytebank/models/name.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class NameContainer extends StatelessWidget {
+class NameContainer extends BlocContainer {
   @override
   Widget build(BuildContext context) {
     return NameView();
