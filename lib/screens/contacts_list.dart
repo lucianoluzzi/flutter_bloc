@@ -85,7 +85,7 @@ class ContactsList extends StatelessWidget {
                   onClick: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => TransactionForm(contact),
+                        builder: (context) => TransactionFormContainer(contact),
                       ),
                     );
                   },
